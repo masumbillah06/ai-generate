@@ -40,18 +40,18 @@ export default function AIGenerator() {
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
         placeholder="What do you want to generate?"
-        className="bg-amber-50 text-slate-700 h-30 w-120 border-3 border-green-700 rounded-xl"
+        className="bg-stone-50 text-taupe-700 h-auto w-120 border-3 border-stone-600 rounded-xl"
       />
 
       <button
         onClick={generate}
         disabled={loading || !prompt.trim()}
-        className="bg-green-700 h-8 rounded-lg"
+        className="bg-stone-600 text-taupe-50 h-8 rounded-lg"
       >
         {loading ? "Generating..." : "Generate with AI"}
       </button>
 
-      <div className="bg-amber-50 text-slate-700 h-auto w-120 border-3 border-green-700 rounded-xl">
+      <div className="bg-stone-50 text-taupe-700 h-auto w-120 border-3 border-stone-600 rounded-xl">
         {result}
       </div>
     </div>
