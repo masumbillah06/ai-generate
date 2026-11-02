@@ -69,7 +69,7 @@ export default function AIGenerator() {
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="What do you want to generate?"
           rows={4}
-          className="w-full resize-y rounded-xl border border-stone-300 bg-stone-50 p-3 text-sm text-stone-900 placeholder:text-stone-400 transition focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-500/15 dark:border-stone-700 dark:bg-stone-950 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus:border-indigo-400 dark:focus:ring-indigo-400/20"
+          className="w-full resize-y rounded-xl border border-stone-300 bg-stone-50 p-3 text-sm text-stone-900 placeholder:text-stone-400 transition focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-500/15 focus:text-stone-900 dark:border-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:placeholder:text-stone-500 dark:focus:border-indigo-400 dark:focus:ring-indigo-400/20"
         />
       </div>
 

@@ -5,11 +5,22 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+const TONES = ["professional", "friendly", "luxury", "playful", "technical"];
+
 export async function POST(req: Request) {
   try {
-    const { productName, features } = await req.json();
+    const { productName, features, tone = "professional" } = await req.json();
 
-    if (!productName || !Array.isArray(features)) {
+    if (
+      typeof productName !== "string" ||
+      !productName.trim() ||
+      productName.length > 200 ||
+      !Array.isArray(features) ||
+      features.length === 0 ||
+      features.length > 20 ||
+      features.some((f) => typeof f !== "string" || f.length > 200) ||
+      !TONES.includes(tone)
+    ) {
       return NextResponse.json(
         { error: "Invalid input" },
         { status: 400 }
@@ -20,7 +31,7 @@ export async function POST(req: Request) {
       model: process.env.OPENAI_MODEL!,
       instructions: `
         You are an expert e-commerce copywriter.
-        Generate professional, engaging product descriptions.
+        Generate engaging product descriptions in a ${tone} tone.
         Do not invent product specifications.
         Keep the description under 150 words.
       `,
